@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método de Bisección | Joshua Methods</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #0d0d0d, #1a1a1a);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .joshua-methods {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #ffcc00;
+        }
+
+        .container {
+            max-width: 900px;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 0 15px #333;
+        }
+
+        h2 {
+            color: #ffcc00;
+            font-size: 32px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px;
+            background: rgba(50, 50, 50, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #222;
+        }
+
+        label {
+            font-weight: bold;
+            color: #ffcc00;
+            font-size: 18px;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 18px;
+            text-align: center;
+            background: #333;
+            color: white;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #0078D7, #005a9c);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .box {
+            background: rgba(50, 50, 50, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #222;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(50, 50, 50, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #222;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ffcc00;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #ffcc00;
+            color: #121212;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #222;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Joshua Methods en grande -->
+    <div class="joshua-methods">Joshua Methods 🚀</div>
+
+    <div class="container">
+        <h2>Calculadora de Raíz con Bisección</h2>
+        
+        <form method="post">
+            {% csrf_token %}
+            <label>Ecuación:</label>
+            <input type="text" name="ecuacion" required>
+            
+            <label>Intervalo (a):</label>
+            <input type="number" name="a" required>
+            
+            <label>Intervalo (b):</label>
+            <input type="number" name="b" required>
+            
+            <button type="submit">Calcular</button>
+        </form>
+
+        {% if resultado %}
+            <div class="box">
+                <h3>Resultado:</h3>
+                <p>{{ resultado }}</p>
+            </div>
+        {% endif %}
+
+        {% if imagen_url %}
+            <div class="box">
+                <h3>Visualización:</h3>
+                <img src="{{ imagen_url }}" alt="Gráfica de Convergencia">
+            </div>
+        {% endif %}
+
+        {% if pasos %}
+            <div class="box">
+                <h3>Pasos de la Iteración:</h3>
+                <ul>
+                    {% for paso in pasos %}
+                        <li>{{ paso }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if historial %}
+            <div class="box">
+                <h3>Historial de Cálculos:</h3>
+                <table>
+                    <tr>
+                        <th>Ecuación</th>
+                        <th>Intervalo [a, b]</th>
+                        <th>Resultado</th>
+                        <th>Fecha</th>
+                    </tr>
+                    {% for item in historial %}
+                        <tr>
+                            <td>{{ item.ecuacion }}</td>
+                            <td>[{{ item.a }}, {{ item.b }}]</td>
+                            <td>{{ item.resultado }}</td>
+                            <td>{{ item.fecha_creacion }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

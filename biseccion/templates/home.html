@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Bisección</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #0d0d0d, #1a1a1a);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            position: relative;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 0 15px #333;
+        }
+
+        .joshua-methods {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffcc00;
+            background: rgba(50, 50, 50, 0.8);
+            padding: 12px 18px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ffcc00;
+            text-transform: uppercase;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .calculator {
+            background: linear-gradient(45deg, #0078D7, #005a9c);
+        }
+
+        .history {
+            background: linear-gradient(45deg, #28a745, #1f7a31);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Joshua Methods - Destacado -->
+    <div class="joshua-methods">Joshua Methods 🚀</div>
+
+    <div class="container">
+        <h1 style="font-size: 40px; color: #ffcc00;">🔍 Método de Bisección 🔍</h1>
+        <hr style="border: 1px solid #ffcc00;">
+
+        <p style="font-size: 18px;">Bienvenido a nuestra aplicación de cálculo de raíces mediante el <strong>Método de Bisección</strong>.  
+           Aquí puedes encontrar soluciones precisas a ecuaciones matemáticas usando este método numérico.</p>
+
+        <h2 style="color: #ffcc00;">📌 ¿Cómo funciona el método?</h2>
+        <p style="font-size: 16px;">El método de bisección es una técnica iterativa utilizada para encontrar raíces de funciones.  
+           Se basa en dividir un intervalo en dos partes y seleccionar aquella donde la función cambia de signo.</p>
+
+        <h2 style="color: #ffcc00;">⚡ ¿Cómo usar nuestra calculadora?</h2>
+        <ul style="list-style-type: none; font-size: 16px;">
+            <li>✅ Ingresa la ecuación matemática en el campo correspondiente.</li>
+            <li>✅ Define un intervalo donde haya un cambio de signo.</li>
+            <li>✅ Presiona "Calcular" y observa el resultado junto con su gráfica.</li>
+        </ul>
+
+        <h2 style="color: #ffcc00;">🔗 Accede a la calculadora</h2>
+        <p>
+            <a href="/biseccion/" class="button calculator">➡️ Ir a la calculadora de bisección</a>
+        </p>
+
+        <h2 style="color: #ffcc00;">📜 Historial de cálculos</h2>
+        <p>
+            <a href="/historial/" class="button history">📂 Ver cálculos anteriores</a>
+        </p>
+    </div>
+
+</body>
+</html>

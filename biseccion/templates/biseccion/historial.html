@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Historial de Cálculos | Joshua Methods</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #0d0d0d, #1a1a1a);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            padding: 20px;
+            background-color: rgba(30, 30, 30, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 0 15px #333;
+        }
+
+        .title {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px #ffcc00;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(50, 50, 50, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px #222;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ffcc00;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        th {
+            background-color: #ffcc00;
+            color: #121212;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .calculator {
+            background: linear-gradient(45deg, #0078D7, #005a9c);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">Historial de Cálculos 📜</div>
+
+    <div class="container">
+        <table>
+            <tr>
+                <th>Ecuación</th>
+                <th>Intervalo [a, b]</th>
+                <th>Resultado</th>
+                <th>Fecha</th>
+            </tr>
+            {% for item in historial %}
+                <tr>
+                    <td>{{ item.ecuacion }}</td>
+                    <td>[{{ item.a }}, {{ item.b }}]</td>
+                    <td>{{ item.resultado }}</td>
+                    <td>{{ item.fecha_creacion }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href="/biseccion/" class="button calculator">🔙 Volver a la calculadora</a>
+    </div>
+
+</body>
+</html>
